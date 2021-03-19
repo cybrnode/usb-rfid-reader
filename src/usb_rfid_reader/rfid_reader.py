@@ -1,6 +1,6 @@
 import threading
 from typing import Callable, List, Tuple
-from util import decode_keydown_event
+from .util import decode_keydown_event
 from evdev import InputDevice
 
 from selectors import DefaultSelector, EVENT_READ
@@ -67,10 +67,10 @@ class USBRFIDReader:
 
     def process_scans(self):
         if not self.scanner_thread:
-            raise Exception("scanner not running, did you forget to call .start()?") # TODO: make proper custom exception classes
+            raise Exception("scanner not running, did you forget to call .start()?")  # TODO: make proper custom exception classes
 
         if not self.callback:
-            raise Exception("No Callback registered, did you call .register_callback()") # TODO: make proper custom exception classes
+            raise Exception("No Callback registered, did you call .register_callback()")  # TODO: make proper custom exception classes
 
         while True:
             # TODO: Think if this is a problem, because this will block all other callbacks if a callback takes too long, or raises Exception

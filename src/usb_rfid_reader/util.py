@@ -1,5 +1,5 @@
 import evdev
-from scancodes import SCAN_CODES
+from .scancodes import SCAN_CODES
 
 
 def decode_keydown_event(event):
